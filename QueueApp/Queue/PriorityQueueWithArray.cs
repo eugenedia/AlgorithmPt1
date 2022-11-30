@@ -25,30 +25,22 @@ namespace Queue
             if (count == array.Length)
                 throw new InvalidOperationException();
             
-            if (count == 0)
-            {
-                array[0] = e;
-                count++;
-                return;
-            }
-                
 
-            for(int i = count-1; i >= 0; i--)
+            int i;
+
+            for(i = count-1; i >= 0; i--)
             {
                 if (array[i] > e)
                 {
                     array[i + 1] = array[i];
-                    if (i == 0)
-                        array[0] = e;
                 }
 
                 else
-                {
-                    array[i + 1] = e;
                     break;
-                }
+                
                     
             }
+            array[i + 1] = e;
             count++;
         }
 

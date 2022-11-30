@@ -96,13 +96,14 @@ namespace Queue
 
             Console.WriteLine();
 
-            PriorityQueueWithArray pq = new PriorityQueueWithArray(6);
+            PriorityQueueWithArray pq = new PriorityQueueWithArray(7);
 
             pq.Enqueue(5);
             pq.Enqueue(3);
             pq.Enqueue(2);
             pq.Enqueue(1);
             pq.Enqueue(6);
+            pq.Enqueue(2);
             pq.Enqueue(7);
 
             Console.WriteLine($"PriorityQueueWithArray: {pq.ToString()}");
