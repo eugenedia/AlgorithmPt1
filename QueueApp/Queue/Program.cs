@@ -60,41 +60,54 @@ namespace Queue
 
             Console.WriteLine("----- Реализация очереди с использованием стека");
 
-            QueueWithTwoStacks sq = new QueueWithTwoStacks();
-            sq.Enqueue(1);
-            sq.Enqueue(2);
-            sq.Enqueue(3);
-            sq.Enqueue(4);
-            sq.Enqueue(5);
-            sq.Dequeue();
-            sq.Dequeue();
-            sq.Enqueue(6);
-            sq.Enqueue(7);
+            QueueWithTwoStacks qwts = new QueueWithTwoStacks();
+            qwts.Enqueue(1);
+            qwts.Enqueue(2);
+            qwts.Enqueue(3);
+            qwts.Enqueue(4);
+            qwts.Enqueue(5);
+            qwts.Dequeue();
+            qwts.Dequeue();
+            qwts.Enqueue(6);
+            qwts.Enqueue(7);
 
-            while (!sq.IsEmpty())
+            while (!qwts.IsEmpty())
             {
-                Console.Write(sq.Dequeue() + " ");
+                Console.Write(qwts.Dequeue() + " ");
             }
 
             Console.WriteLine();
 
-            sq.Enqueue(1);
-            sq.Enqueue(2);
-            sq.Enqueue(3);
-            sq.Enqueue(4);
-            sq.Enqueue(5);
-            sq.Dequeue();
+            qwts.Enqueue(1);
+            qwts.Enqueue(2);
+            qwts.Enqueue(3);
+            qwts.Enqueue(4);
+            qwts.Enqueue(5);
+            qwts.Dequeue();
 
-            Console.WriteLine($"Peek:  {sq.Peek()}");
+            Console.WriteLine($"Peek:  {qwts.Peek()}");
 
-            while (!sq.IsEmpty())
+            while (!qwts.IsEmpty())
             {
-                Console.Write(sq.Dequeue() + " ");
+                Console.Write(qwts.Dequeue() + " ");
             }
 
             //sq.Dequeue();
 
             Console.WriteLine();
+
+            PriorityQueueWithArray pq = new PriorityQueueWithArray(6);
+
+            pq.Enqueue(5);
+            pq.Enqueue(3);
+            pq.Enqueue(2);
+            pq.Enqueue(1);
+            pq.Enqueue(6);
+            pq.Enqueue(7);
+
+            Console.WriteLine($"PriorityQueueWithArray: {pq.ToString()}");
+            Console.ReadLine();
+
         }
     }
 }
