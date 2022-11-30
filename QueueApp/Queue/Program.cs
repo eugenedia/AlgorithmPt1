@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 // Задания по работе с очередями
 namespace Queue
 {
-    class Program
+    class Program : QueueReverse
     {
         static void Main(string[] args)
         {
@@ -27,7 +27,7 @@ namespace Queue
 
             /////////////////
 
-            //Реализация очереди с использованием массива
+            //Реализация очереди с использованием circular массива
             ArrayQueue aq = new ArrayQueue(5);
 
             aq.Enqueue(1);
@@ -54,24 +54,47 @@ namespace Queue
             Console.WriteLine($"Внутренний массив: {aq.ToString()}");
             Console.WriteLine($"Deque: {aq.Dequeue()}");
             Console.WriteLine($"Внутренний массив: {aq.ToString()}");
-        }
 
+            ///////////////////////
+            /// Реализация очереди с использованием стека
 
-        // Задача по обращению очереди
-        public static void Reverse(Queue<int> queue)
-        {
-            Stack<int> stack = new Stack<int>();
+            Console.WriteLine("----- Реализация очереди с использованием стека");
 
-            while(queue.Count != 0)
+            QueueWithTwoStacks sq = new QueueWithTwoStacks();
+            sq.Enqueue(1);
+            sq.Enqueue(2);
+            sq.Enqueue(3);
+            sq.Enqueue(4);
+            sq.Enqueue(5);
+            sq.Dequeue();
+            sq.Dequeue();
+            sq.Enqueue(6);
+            sq.Enqueue(7);
+
+            while (!sq.IsEmpty())
             {
-                stack.Push(queue.Dequeue());
+                Console.Write(sq.Dequeue() + " ");
             }
 
-            while(stack.Count != 0)
-            {
-                queue.Enqueue(stack.Pop());
-            }
-        }
+            Console.WriteLine();
 
+            sq.Enqueue(1);
+            sq.Enqueue(2);
+            sq.Enqueue(3);
+            sq.Enqueue(4);
+            sq.Enqueue(5);
+            sq.Dequeue();
+
+            Console.WriteLine($"Peek:  {sq.Peek()}");
+
+            while (!sq.IsEmpty())
+            {
+                Console.Write(sq.Dequeue() + " ");
+            }
+
+            //sq.Dequeue();
+
+            Console.WriteLine();
+        }
     }
 }
