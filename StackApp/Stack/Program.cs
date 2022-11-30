@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Stack
 {
+    /// <summary>
+    /// Реализация задач по работе со стеком
+    /// </summary>
     class Program
     {
         static void Main(string[] args)

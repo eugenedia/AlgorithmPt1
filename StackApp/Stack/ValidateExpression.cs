@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stack
 {
+    //Проверка сбалансированности выражения - того, что количество открывающихся и закрывающихся скобок правильное.
     class ValidateExpression
     {
         public static bool Validate(string s)

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stack
 {
+    // Релизация стека
     public class Stack
     {
         private int[] array = new int[2];

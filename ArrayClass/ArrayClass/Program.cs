@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ArrayClass
 {
+    /// <summary>
+    /// Реализация динамического массива
+    /// </summary>
     class Program
     {
         static void Main(string[] args)

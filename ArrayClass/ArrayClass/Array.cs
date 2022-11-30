@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ArrayClass
 {
+    /// <summary>
+    /// Реализация динамического массива
+    /// </summary>
     public class Array
     {
         private int [] array;
@@ -23,7 +26,7 @@ namespace ArrayClass
                 array[lastElement++] = element;
             else
             {
-                int[] internalArray = new int[array.Length + 1];
+                int[] internalArray = new int[array.Length*2];
                 for(int i = 0; i < array.Length; i++)
                 {
                     internalArray[i] = array[i];

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LinkedLists
 {
+    //Реализация задач по работе со связанным списком
     public class LinkedList
     {
         private Node first;
