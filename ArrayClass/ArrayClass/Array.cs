@@ -13,7 +13,7 @@ namespace ArrayClass
     {
         private int [] array;
 
-        private int lastIndex = 0;
+        private int count = 0;
 
         public Array(int n)
         {
@@ -22,7 +22,7 @@ namespace ArrayClass
 
         public void Insert(int element)
         {
-            if(array.Length == lastIndex)
+            if(array.Length == count)
             {
                 int[] internalArray = new int[array.Length * 2];
                 for (int i = 0; i < array.Length; i++)
@@ -32,16 +32,16 @@ namespace ArrayClass
                 array = internalArray;
             }
             
-            array[lastIndex++] = element;
+            array[count++] = element;
             
         }
 
         public void Print()
         {
 
-            for(int i = 0;  i < lastIndex; i++)
+            for(int i = 0;  i < count; i++)
             {
-                if (i == lastIndex - 1)
+                if (i == count - 1)
                 {
                     Console.Write(array[i]);
                     continue;
@@ -55,12 +55,12 @@ namespace ArrayClass
 
         public void RemoveAt(int index)
         {
-            if (index <= 0 || index >= lastIndex)
+            if (index < 0 || index >= count)
                 throw new ArgumentOutOfRangeException();
             
-            if( index == lastIndex - 1)
+            if( index == count - 1)
             {
-                array[--lastIndex] = 0;
+                array[--count] = 0;
                 return;
             }
 
@@ -73,7 +73,7 @@ namespace ArrayClass
                 internalArray[j++] = array[i];
             }
             array = internalArray;
-            lastIndex--;
+            count--;
         }
 
         public int IndexOf(int element)
