@@ -13,7 +13,7 @@ namespace ArrayClass
     {
         private int [] array;
 
-        private int lastElement = 0;
+        private int lastIndex = 0;
 
         public Array(int n)
         {
@@ -22,26 +22,26 @@ namespace ArrayClass
 
         public void Insert(int element)
         {
-            if(lastElement < array.Length)
-                array[lastElement++] = element;
-            else
+            if(array.Length == lastIndex)
             {
-                int[] internalArray = new int[array.Length*2];
-                for(int i = 0; i < array.Length; i++)
+                int[] internalArray = new int[array.Length * 2];
+                for (int i = 0; i < array.Length; i++)
                 {
                     internalArray[i] = array[i];
                 }
-                internalArray[lastElement++] = element;
                 array = internalArray;
             }
+            
+            array[lastIndex++] = element;
+            
         }
 
         public void Print()
         {
 
-            for(int i = 0;  i < lastElement; i++)
+            for(int i = 0;  i < lastIndex; i++)
             {
-                if (i == lastElement - 1)
+                if (i == lastIndex - 1)
                 {
                     Console.Write(array[i]);
                     continue;
@@ -55,12 +55,12 @@ namespace ArrayClass
 
         public void RemoveAt(int index)
         {
-            if (index <= 0 || index >= lastElement)
+            if (index <= 0 || index >= lastIndex)
                 throw new ArgumentOutOfRangeException();
             
-            if( index == lastElement - 1)
+            if( index == lastIndex - 1)
             {
-                array[--lastElement] = 0;
+                array[--lastIndex] = 0;
                 return;
             }
 
@@ -73,7 +73,7 @@ namespace ArrayClass
                 internalArray[j++] = array[i];
             }
             array = internalArray;
-            lastElement--;
+            lastIndex--;
         }
 
         public int IndexOf(int element)
