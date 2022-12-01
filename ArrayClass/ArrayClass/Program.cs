@@ -25,6 +25,8 @@ namespace ArrayClass
 
             numbers.RemoveAt(2);
             numbers.Print();
+            numbers.RemoveAt(0);
+            numbers.Print();
 
             Console.WriteLine(numbers.IndexOf(60));
         }
