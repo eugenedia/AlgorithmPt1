@@ -42,6 +42,7 @@ namespace HashTables
         }
 
         ////Поиск первого неповторяемого символа с помощью Dictionary
+        ///В словаре содержатся буквы и количество их повторений
         public char GetFirstUnrepeatedCharacterWithDictionary(string input)
         {
             Dictionary<char, int> dictionary = new Dictionary<char, int>();
