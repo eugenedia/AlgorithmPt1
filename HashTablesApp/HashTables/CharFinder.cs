@@ -2,12 +2,12 @@
 
 namespace HashTables
 {
-    //Поиск первой неповторяемой буквы в строке без учета регистра
-    internal class NonRepeatedCharFinder
+    
+    internal class CharFinder
     {
 
-        //С помощью цикла
-        public char GetCharManual(string input)
+        //Поиск первого неповторяемого символа с помощью цикла
+        public char GetFirstUnrepeatedCharacter(string input)
         {
             bool repeated = false;
             string s = input.ToLower();
@@ -41,8 +41,8 @@ namespace HashTables
 
         }
 
-        //С помощью dictionary
-        public char GetCharWithDictionary(string input)
+        ////Поиск первого неповторяемого символа с помощью Dictionary
+        public char GetFirstUnrepeatedCharacterWithDictionary(string input)
         {
             Dictionary<char, int> dictionary = new Dictionary<char, int>();
             string s = input.ToLower();
@@ -64,6 +64,22 @@ namespace HashTables
             {
                 if (dictionary[c] == 1)
                     return c;
+            }
+
+            return char.MinValue;
+        }
+
+        //Поиск первого повторяемого символа
+        public char GetFirstRepeatedCharacter(string s)
+        {
+            HashSet<char> hs = new HashSet<char>();
+
+            foreach (char c in s)
+            {
+                if (hs.Contains(c) && c != ' ')
+                    return c;
+                else
+                    hs.Add(c);
             }
 
             return char.MinValue;

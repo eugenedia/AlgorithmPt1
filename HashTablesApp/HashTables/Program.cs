@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HashTables
 {
-    class Program : NonRepeatedCharFinder
+    class Program : CharFinder
     {
         static void Main(string[] args)
         {
@@ -14,14 +14,13 @@ namespace HashTables
 
             string s = "A Green Apple";
 
-            NonRepeatedCharFinder nr = new NonRepeatedCharFinder();
+            CharFinder cf = new CharFinder();
 
-            Console.WriteLine($"First non repeated char {nr.GetCharManual(s)}");
-            Console.WriteLine($"First non repeated char {nr.GetCharWithDictionary(s)}");
+            Console.WriteLine($"First non repeated char {cf.GetFirstUnrepeatedCharacter(s)}");
+            Console.WriteLine($"First non repeated char {cf.GetFirstUnrepeatedCharacterWithDictionary(s)}");
 
-            RepeatedCharFinder rc = new RepeatedCharFinder();
 
-            Console.WriteLine($"First repeated char {rc.GetCharWithSet(s)}");
+            Console.WriteLine($"First repeated char {cf.GetFirstRepeatedCharacter(s)}");
 
         }
     }
