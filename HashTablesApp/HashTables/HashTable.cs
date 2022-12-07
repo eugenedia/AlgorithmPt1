@@ -33,17 +33,20 @@ namespace HashTables
         {
             int bucket = key % entries.Length;
 
-            Entry entry = new Entry(key, value);
-
             if (entries[bucket] == null)
-            {
                 entries[bucket] = new LinkedList<Entry>();
-                entries[bucket].AddFirst(entry);
-            }
-            else
-                entries[bucket].AddLast(entry);
 
+            else                
+             foreach (var entry in entries[bucket])
+                {
+                    if(entry.key == key)
+                    {
+                        entry.value = value;
+                        return;
+                    }
+                }
 
+            entries[bucket].AddLast(new Entry(key, value));
         }
 
         public string Get(int key)

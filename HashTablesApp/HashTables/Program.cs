@@ -43,6 +43,7 @@ namespace HashTables
 
             ht.Remove(3);
             ht.Put(3, "еще 3");
+            ht.Put(3, "снова 3");
 
             for (int i = 1; i <= 7; i++)
             {
